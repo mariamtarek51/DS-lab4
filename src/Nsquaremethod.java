@@ -68,9 +68,12 @@ public class Nsquaremethod {
         int []x=m.createx(key);
         int index=m.index(finalh,x);
         if(hashTable[index % hashTable.length]==key){
+            System.out.println(key+ " is found at index :"+index %hashTable.length);
             return true;
         }
-        return false;
+            System.out.println(key+ " is not found ");
+
+            return false;
         }
 
         public int getCollisions(){
