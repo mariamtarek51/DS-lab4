@@ -12,7 +12,7 @@ public class Nsquaremethod {
     public Nsquaremethod(int []arr){
         this.s=arr;
         this.n=arr.length*arr.length;
-        this.b=(int) Math.ceil(Math.log(s.length) / Math.log(2));  //hash length
+        this.b=(int) Math.ceil(Math.log(this.n) / Math.log(2));  //hash length
          m=new Matrixmethod(n,b);
 
 
