@@ -29,9 +29,21 @@ public class Matrixmethod {
     }
     public int[] hxmatrix(int h[][],int x[] ){
         int hxmatrix[]=new int[this.b];
-
-
+        int tmp=0;
         for (int i = 0; i < this.b; i++) {
+
+
+                for (int k = 0; k < 32; k++) {
+                    tmp += h[i][k] * x[k];
+                }
+                tmp=tmp%2;
+                hxmatrix[i]=tmp;
+                tmp=0;
+
+        }
+
+
+      /*  for (int i = 0; i < this.b; i++) {
             for (int j = 0; j < 32; j++) {
                 if (h[i][j] * x[j] == 1) {
                     hxmatrix[i] = 1;
@@ -42,7 +54,7 @@ public class Matrixmethod {
             }
 
 
-        }
+        }*/
 
         return hxmatrix;
     }
