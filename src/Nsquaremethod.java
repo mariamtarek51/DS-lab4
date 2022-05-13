@@ -76,6 +76,10 @@ public class Nsquaremethod {
             return false;
         }
 
+        public int hashtablelength(){
+        return hashTable.length;
+        }
+
         public int getCollisions(){
         return this.collision;
         }
