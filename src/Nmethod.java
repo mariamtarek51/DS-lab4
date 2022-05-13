@@ -58,7 +58,7 @@ public class Nmethod {
                //HashTables.add(chain);
                NNmethod=new Nsquaremethod(chain);
                NNmethod.hashtable();
-               System.out.println("Collisions: "+NNmethod.getCollisions());
+               System.out.println("Re_build times for hash "+j+":"+NNmethod.getCollisions());
                HashTables.add(NNmethod.hashTable);
                SubhashTable[j]=NNmethod.hashTable;
                subTable[j]=NNmethod;
