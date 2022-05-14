@@ -26,6 +26,7 @@ public class Nmethod {
         for(int i=0;i<this.GivenArray.length;i++){
             XArray=this.GeneratedMatrixHX.createx(this.GivenArray[i]);
             int value=this.GeneratedMatrixHX.index(HArray,XArray)%FirstHash.length;
+            //initialize each place in hash with empty arraylist
             if(FirstHash[value]==null){
                 FirstHash[value]=new ArrayList();
             }
@@ -44,30 +45,34 @@ public class Nmethod {
         for(int k=0;k<firstHash.length;k++) {
             System.out.println("Hash " +k+": "+ java.util.Arrays.toString(new ArrayList[]{firstHash[k]}));
         }
+        int re_total=0;
         //int k=0;
         ArrayList<int[]> HashTables=new ArrayList<>();
        for(int j=0;j< firstHash.length;j++){
 
            if (firstHash[j] != null && firstHash[j].size() != 0) {
                System.out.println("size of chain at index "+j+": "+firstHash[j].size());
+               //making array for each non empty place in the first hash
                 int[] chain=new int[firstHash[j].size()];
 
                for(int i=0;i<firstHash[j].size();i++){
                    chain[i]=(int)firstHash[j].get(i);
                }
                //HashTables.add(chain);
+               //applying O(n2) to rehash
                NNmethod=new Nsquaremethod(chain);
                NNmethod.hashtable();
                System.out.println("Re_build times for hash "+j+":"+NNmethod.getCollisions()+"\n");
-
+               re_total+=NNmethod.getCollisions();
                HashTables.add(NNmethod.hashTable);
+               //array of n2 method containing the resulted hash tables
                SubhashTable[j]=NNmethod.hashTable;
                subTable[j]=NNmethod;
               // System.out.println("Hashtable of each one: "+java.util.Arrays.toString(HashTables.get(k)) );
                //k++;
            }
        }
-       //System.out.println("Counter :"+HashTables.size());
+       System.out.println("Total Re_build times in O(n) :"+re_total);
         }
     public boolean search(int key){
 
